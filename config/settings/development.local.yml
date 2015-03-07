@@ -1,0 +1,7 @@
+db:
+  default:
+   username: root
+   password: ymarin
+   database: finc_store_test_development
+   socket: /tmp/mysql.sock
+
