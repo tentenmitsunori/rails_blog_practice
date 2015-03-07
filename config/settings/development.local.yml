@@ -2,6 +2,6 @@ db:
   default:
    username: root
    password: ymarin
-   database: finc_store_test_development
+   database: rails_blog_practice_development
    socket: /tmp/mysql.sock
 
