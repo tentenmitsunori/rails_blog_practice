@@ -16,6 +16,7 @@ gem 'binding_of_caller'
 gem 'quiet_assets'
 gem 'bullet'
 
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
