@@ -1,0 +1,7 @@
+db:
+  default:
+   username: root
+   password: ymarin
+   database: rails_blog_practice_development
+   socket: /tmp/mysql.sock
+

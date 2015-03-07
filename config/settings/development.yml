@@ -1,0 +1,5 @@
+db:
+  default:
+    username: write your db username in development.local.yml. DO NOT MODIFY HERE.
+    password: write your db password in development.local.yml. DO NOT MODIFY HERE.
+    socket: /tmp/mysql.sock
