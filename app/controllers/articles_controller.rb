@@ -11,9 +11,10 @@ class ArticlesController < ApplicationController
       render :action => "new"
     end
   end
-  
+
   private 
-  def article_params
-    params.require(:article).permit(:title,:content)
-  end 
+
+    def article_params
+      params.require(:article).permit(:title,:content)
+    end 
 end
