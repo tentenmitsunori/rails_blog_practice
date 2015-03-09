@@ -1,0 +1,8 @@
+<h1>ユーザー登録</h1>
+<%= form_for(@article) do |f| %>
+  <%= f.label :タイトル %>
+  <p> <%= f.text_field :title %></p>
+  <%= f.label :本文 %>
+  <p> <%= f.text_field :content %></p>
+  <%= f.submit %>
+<% end %>
