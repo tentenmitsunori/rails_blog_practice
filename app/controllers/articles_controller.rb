@@ -1,4 +1,8 @@
 class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end 
+
   def new
     @article = Article.new
   end
@@ -11,7 +15,7 @@ class ArticlesController < ApplicationController
       render :action => "new"
     end
   end
-  
+
   private 
   def article_params
     params.require(:article).permit(:title,:content)
