@@ -16,6 +16,7 @@ gem 'binding_of_caller'
 gem 'quiet_assets'
 gem 'bullet'
 gem 'devise'
+gem 'rails_config'
 
 group :development, :test do
   gem 'byebug'
