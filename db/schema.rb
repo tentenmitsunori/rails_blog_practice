@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20150311092336) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
+  create_table "favorites", force: :cascade do |t|
+    t.string   "favoritable_type", limit: 255
+    t.integer  "favoritable_id",   limit: 4
+    t.integer  "user_id",          limit: 4
+    t.integer  "admin_id",         limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "favorites", ["admin_id"], name: "index_favorites_on_admin_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -60,4 +72,6 @@ ActiveRecord::Schema.define(version: 20150311092336) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "articles", "users"
+  add_foreign_key "favorites", "admins"
+  add_foreign_key "favorites", "users"
 end
