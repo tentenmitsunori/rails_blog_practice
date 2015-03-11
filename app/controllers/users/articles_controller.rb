@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class Users::ArticlesController < Users::BaseController
   before_action :set_article,only:[:show, :edit, :update, :destroy]
 
   def index
