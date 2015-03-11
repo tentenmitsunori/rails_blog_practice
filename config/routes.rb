@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
-  resources :articles
+  namespace :users do
+    resources :articles
+  end
 end
