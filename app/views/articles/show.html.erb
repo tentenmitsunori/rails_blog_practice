@@ -1,8 +1,0 @@
-<h1><%= @article.title %></h1>
-
-<p><%= @article.content %></p>
-
-<%= link_to '記事一覧へ戻る', articles_path %>
-<%= link_to '編集', edit_article_path(@article.id) %>
-<%= link_to '削除', article_path(@article.id),:method => :delete, data:{ confirm:'本当に削除してよろしいですか?'}%>
-
