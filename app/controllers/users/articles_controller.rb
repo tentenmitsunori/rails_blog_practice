@@ -15,7 +15,7 @@ class Users::ArticlesController < Users::BaseController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to articles_path
+      redirect_to users_articles_path
     else
       render :action => "new"
     end
@@ -26,7 +26,7 @@ class Users::ArticlesController < Users::BaseController
 
   def update
     if @article.update(article_params)
-      redirect_to articles_path
+      redirect_to users_articles_path
     else
       render :action => "edit"
     end
@@ -34,7 +34,7 @@ class Users::ArticlesController < Users::BaseController
 
   def destroy
     @article.destroy
-    redirect_to articles_path
+    redirect_to users_articles_path
   end
 
   private 
