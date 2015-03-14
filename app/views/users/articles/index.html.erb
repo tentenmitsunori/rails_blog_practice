@@ -5,8 +5,13 @@
   <% @articles.each do |article| %>
     <li>
     <%= link_to article.title, users_article_path(id: article.id) %>
+    <% if article.favorite.nil? %>
+      <%= link_to 'お気に入りに追加する', favorites_path(:favorite => {favoritable_type: 'article', favoritable_id: article.id, user_id: current_user.id}),:method => :post %>
+    <% else %>
+    <% end %>
     <%= link_to '編集', edit_users_article_path(article.id) %>・
     <%= link_to '削除', users_article_path(article.id),:method => :delete, data:{ confirm:'本当に削除してよろしいですか?'}%>
     </li>
   <% end %>
 </ul>
+
