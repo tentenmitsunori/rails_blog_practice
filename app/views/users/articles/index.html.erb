@@ -1,4 +1,10 @@
 <h1>記事一覧</h1>
+<% if @favorite.present? %>
+  <% if @favorite.errors.full_messages.present? %>
+    <p><%= お気に入りの登録ができませんでした。 %><p>
+  <% end %>
+<% end %>
+
 <%= link_to "新規記事作成",new_users_article_path %>
 
 <ul>

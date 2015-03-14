@@ -1,10 +1,15 @@
 class FavoritesController < ApplicationController
   def create
-    favorite = Favorite.new(favorite_params)
-    if favorite.save
+    @favorite = Favorite.new(favorite_params)
+    if @favorite.save
       redirect_to :back
     else
-      redirect_to :back,:notice => "お気に入りに追加出来ませんでした"
+      if @favorite.favoritable_type == "article"
+        @articles = Article.all
+        render "users/articles/index"
+      else
+        #TODO: favoritable_type == "comment"の時を実装する
+      end
     end
   end
 

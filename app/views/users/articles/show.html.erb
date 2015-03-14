@@ -1,10 +1,15 @@
 <h1><%= @article.title %></h1>
+<% if @favorite.present? %>
+  <% if @favorite.errors.full_messages.present? %>
+    <p><%= お気に入りの登録ができませんでした。 %><p>
+  <% end %>
+<% end %>
 
 <p><%= @article.content %></p>
 
 <%= link_to '記事一覧へ戻る', users_articles_path %>
-<% if article.favorites.where(user_id: current_user.id).blank? %>
-  <%= link_to 'お気に入りに追加する', favorites_path(:favorite => {favoritable_type: 'article', favoritable_id: article.id, user_id: current_user.id}),:method => :post %>
+<% if @article.favorites.where(user_id: current_user.id).blank? %>
+  <%= link_to 'お気に入りに追加する', favorites_path(:favorite => {favoritable_type: 'article', favoritable_id: @article.id, user_id: current_user.id}),:method => :post %>
 <% else %>
   <%# ここにdeleteボタンを設置する %>
 <% end %>
