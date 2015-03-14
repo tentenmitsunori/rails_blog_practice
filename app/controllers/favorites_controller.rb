@@ -4,12 +4,9 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to :back
     else
-      if @favorite.favoritable_type == "article"
-        @articles = Article.all
-        render "users/articles/index"
-      else
-        #TODO: favoritable_type == "comment"の時を実装する
-      end
+      @favoritable_type =  @favorite.favoritable_type 
+      set_elements
+      render "users/articles/index"
     end
   end
 
@@ -17,5 +14,11 @@ class FavoritesController < ApplicationController
 
     def favorite_params
       params.require(:favorite).permit(:favoritable_type,:favoritable_id,:user_id,:admin_id)
+    end
+
+    def set_elements
+      if @favoritable_type == "article"
+        @articles = Article.all
+      end
     end
 end

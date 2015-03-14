@@ -1,7 +1,7 @@
 <h1><%= @article.title %></h1>
 <% if @favorite.present? %>
   <% if @favorite.errors.full_messages.present? %>
-    <p><%= お気に入りの登録ができませんでした。 %><p>
+    <p><%= t "attributes.favorite_error_message" %><p>
   <% end %>
 <% end %>
 
