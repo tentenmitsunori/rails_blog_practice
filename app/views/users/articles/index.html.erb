@@ -1,12 +1,24 @@
 <h1>記事一覧</h1>
+<% if @favorite.present? %>
+  <% if @favorite.errors.full_messages.present? %>
+    <p><%= t "attributes.favorite_error_message" %><p>
+  <% end %>
+<% end %>
+
 <%= link_to "新規記事作成",new_users_article_path %>
 
 <ul>
   <% @articles.each do |article| %>
     <li>
     <%= link_to article.title, users_article_path(id: article.id) %>
+    <% if article.favorites.where(user_id: current_user.id).blank? %>
+      <%= link_to 'お気に入りに追加する', favorites_path(:favorite => {favoritable_type: 'article', favoritable_id: article.id, user_id: current_user.id}),:method => :post %>
+    <% else %>
+      <%# ここにdeleteボタンを設置する %>
+    <% end %>
     <%= link_to '編集', edit_users_article_path(article.id) %>・
     <%= link_to '削除', users_article_path(article.id),:method => :delete, data:{ confirm:'本当に削除してよろしいですか?'}%>
     </li>
   <% end %>
 </ul>
+
