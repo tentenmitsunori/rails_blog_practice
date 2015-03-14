@@ -2,8 +2,9 @@ class FavoritesController < ApplicationController
   def create
     favorite = Favorite.new(favorite_params)
     if favorite.save
-      redirect_to(:back)
+      redirect_to :back
     else
+      redirect_to :back,:notice => "お気に入りに追加出来ませんでした"
     end
   end
 
